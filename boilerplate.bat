@@ -1,8 +1,8 @@
 @ECHO OFF
 CLS
 :: <Sript name>
-:: Modified: <script modified date>
 :: Author: <Author Name (author@email)>
+:: Modified: <script modified date>
 :: Version <#.# starting from 1.0>
 
 SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
@@ -17,10 +17,11 @@ SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
 :: --------------------------------------
 :: Set current dir
 SET CURDIR=%~dp0
+SET CURDIR=%CURDIR:~0,-1%
 :: Get LOG timestamp to be used in log filename
 call :get_file_timestamp LOGTIMESTAMP
 :: Set log filename
-SET LOG=%CURDIR%log_%LOGTIMESTAMP%.txt
+SET LOG=%CURDIR%\log_%LOGTIMESTAMP%.txt
 
 call :msg "Script started"
 call :log "Script started"
